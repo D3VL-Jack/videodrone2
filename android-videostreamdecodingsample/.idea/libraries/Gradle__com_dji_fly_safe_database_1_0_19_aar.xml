@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.dji:fly-safe-database:1.0.19@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0fa0c2ceb45c5a5076c7f820d0ad1dd6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0fa0c2ceb45c5a5076c7f820d0ad1dd6/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0fa0c2ceb45c5a5076c7f820d0ad1dd6/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
