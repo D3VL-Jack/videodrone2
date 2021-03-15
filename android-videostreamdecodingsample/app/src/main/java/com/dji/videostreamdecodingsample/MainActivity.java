@@ -1,6 +1,8 @@
 package com.dji.videostreamdecodingsample;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
@@ -25,6 +27,7 @@ import android.widget.Toast;
 import com.dji.videostreamdecodingsample.media.DJIVideoStreamDecoder;
 import com.dji.videostreamdecodingsample.media.NativeHelper;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -85,6 +88,7 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
     private int videoViewWidth;
     private int videoViewHeight;
     private int count;
+    private Bitmap mBitmap;
 
     @Override
     protected void onResume() {
@@ -513,7 +517,7 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
             yuvFrame[length + 2 * i] = u[i];
             yuvFrame[length + 2 * i + 1] = v[i];
         }
-        screenShot(yuvFrame,Environment.getExternalStorageDirectory() + "/DJI_ScreenShot", width, height);
+        screenShot2(yuvFrame,Environment.getExternalStorageDirectory() + "/DJI_ScreenShot", width, height);
     }
 
     private void newSaveYuvDataToJPEG420P(byte[] yuvFrame, int width, int height) {
@@ -540,6 +544,39 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
      * Save the buffered data into a JPG image file
      */
     private void screenShot(byte[] buf, String shotDir, int width, int height) {
+
+        YuvImage yuvImage = new YuvImage(buf,
+                ImageFormat.NV21,
+                width,
+                height,
+                null);
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+            Rect rect = new Rect(0, 0, width, height);
+
+            yuvImage.compressToJpeg(rect, 40, byteArrayOutputStream);
+            byte[] bmp = byteArrayOutputStream.toByteArray();
+
+            SocketClient socketClient = new SocketClient();
+            socketClient.execute(bmp);
+
+
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+            }
+        });
+    }
+    private void screenShot2(byte[] buf, String shotDir, int width, int height) {
         File dir = new File(shotDir);
         if (!dir.exists() || !dir.isDirectory()) {
             dir.mkdirs();
