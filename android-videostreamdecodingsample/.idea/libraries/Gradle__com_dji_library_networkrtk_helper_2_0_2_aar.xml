@@ -5,6 +5,10 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2382a23603099f12793efe21a5db9ba/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2382a23603099f12793efe21a5db9ba/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2382a23603099f12793efe21a5db9ba/jars/libs/wz-rtcm-2.0.2-release.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e1af212f88a94b31423173679142ae0/jars/libs/wz-rtcm-2.0.2-release.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e1af212f88a94b31423173679142ae0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e1af212f88a94b31423173679142ae0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e1af212f88a94b31423173679142ae0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

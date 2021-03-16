@@ -2,6 +2,7 @@
   <library name="Gradle: com.dji:dji-sdk:4.14-trial1@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b370936c8a3203a7efce62056c0a20ed/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b370936c8a3203a7efce62056c0a20ed/jars/classes.jar!/" />
@@ -17,6 +18,19 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b370936c8a3203a7efce62056c0a20ed/jars/libs/rxjava-computation-expressions-0.21.1.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b370936c8a3203a7efce62056c0a20ed/jars/libs/sqlbrite-0.6.2.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b370936c8a3203a7efce62056c0a20ed/jars/libs/sqlcipher.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/rxandroid-1.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/dji-reactive-streams-1.0.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/rxjava-computation-expressions-0.21.1.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/converter-gson-2.2.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/logging-interceptor-3.6.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/retrofit-2.2.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/dji-rxjava-1.1.3.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/sqlcipher.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/adapter-rxjava2-2.2.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3bf91175bc0c70481e904e604b8e1288/jars/libs/sqlbrite-0.6.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

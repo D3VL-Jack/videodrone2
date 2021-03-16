@@ -1,6 +1,7 @@
 package com.dji.videostreamdecodingsample;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
@@ -21,6 +22,7 @@ import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +60,7 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
     private VideoFeeder.VideoFeed standardVideoFeeder;
 
 
+
     protected VideoFeeder.VideoDataListener mReceivedVideoDataListener = null;
     private TextView titleTv;
     public Handler mainHandler = new Handler(Looper.getMainLooper()) {
@@ -89,6 +92,8 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
     private int videoViewHeight;
     private int count;
     private Bitmap mBitmap;
+    private byte[] ip_address;
+
 
     @Override
     protected void onResume() {
@@ -148,6 +153,10 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
 
         setContentView(R.layout.activity_main);
         initUi();
+        Intent intent = getIntent();
+        ip_address = intent.getByteArrayExtra("ip_address");
+
+
         if (isM300Product()) {
             OcuSyncLink ocuSyncLink = VideoDecodingApplication.getProductInstance().getAirLink().getOcuSyncLink();
             // If your MutltipleLensCamera is set at right or top, you need to change the PhysicalSource to RIGHT_CAM or TOP_CAM.
@@ -190,6 +199,7 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
         screenShot.setSelected(false);
 
         titleTv = (TextView) findViewById(R.id.title_tv);
+
         videostreamPreviewTtView = (TextureView) findViewById(R.id.livestream_preview_ttv);
         videostreamPreviewSf = (SurfaceView) findViewById(R.id.livestream_preview_sf);
         videostreamPreviewSf.setClickable(true);
@@ -555,11 +565,11 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
 
             Rect rect = new Rect(0, 0, width, height);
 
-            yuvImage.compressToJpeg(rect, 40, byteArrayOutputStream);
+            yuvImage.compressToJpeg(rect, 20, byteArrayOutputStream);
             byte[] bmp = byteArrayOutputStream.toByteArray();
 
             SocketClient socketClient = new SocketClient();
-            socketClient.execute(bmp);
+            socketClient.execute(bmp, ip_address);
 
 
             byteArrayOutputStream.flush();

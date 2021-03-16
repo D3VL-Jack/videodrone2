@@ -8,10 +8,12 @@ import android.hardware.usb.UsbManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import dji.sdk.sdkmanager.DJISDKInitEvent;
+
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -64,6 +69,8 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
     private TextView mTextProduct;
     private TextView mTextModelAvailable;
     private Button mBtnOpen;
+    private EditText mEditIP;
+
     private KeyListener firmVersionListener = new KeyListener() {
         @Override
         public void onValueChange(@Nullable Object oldValue, @Nullable Object newValue) {
@@ -262,10 +269,13 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
         mTextConnectionStatus = (TextView) findViewById(R.id.text_connection_status);
         mTextModelAvailable = (TextView) findViewById(R.id.text_model_available);
         mTextProduct = (TextView) findViewById(R.id.text_product_info);
+        mEditIP = (EditText) findViewById(R.id.editTextIP);
         mBtnOpen = (Button) findViewById(R.id.btn_open);
         mBtnOpen.setOnClickListener(this);
         mBtnOpen.setEnabled(false);
         ((TextView)findViewById(R.id.textView2)).setText(getResources().getString(R.string.sdk_version, DJISDKManager.getInstance().getSDKVersion()));
+
+
 
     }
 
@@ -327,6 +337,9 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
 
             case R.id.btn_open: {
                 Intent intent = new Intent(this, MainActivity.class);
+                String str = mEditIP.getText().toString();
+                byte[] ip = str.getBytes(StandardCharsets.UTF_8);
+                intent.putExtra("ip_address", ip);
                 startActivity(intent);
                 break;
             }
