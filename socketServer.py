@@ -15,9 +15,9 @@ def sub_server(indirizzo, backlog=1): # blacklog quante richieste può accettare
         sub_server(indirizzo, backlog=1)
         
     count = 0
-    path = os.path.dirname(os.path.abspath(__file__)) + '\imagesReceived'
-    print(path)
-    # path = 'D:\GroupProject\AndroidStudioProjects\GP-main\imagesReceived'
+    #path = os.path.dirname(os.path.abspath(__file__)) + '\imagesReceived'
+    #print(path)
+    path = 'D:\GroupProject\AndroidStudioProjects\GP-main\imagesReceived\image.jpg'
     while True:
         conn, indirizzo_client = s.accept() # accetto la richiesta di un client, 
                                             # funzione che ritorna la connessione (il socket del client) e l'inidrizzo del client 
@@ -29,9 +29,9 @@ def sub_server(indirizzo, backlog=1): # blacklog quante richieste può accettare
         size = struct.unpack('!i', buf)
         print("receiving %s bytes" % size)
         
-        filename = path + '\image'+str(count)+'.png'
+        #filename = path + '\image'+str(count)+'.jpg'
         #filename = path + '\image.png'
-        with open(filename, 'wb') as file:
+        with open(path, 'wb') as file:
             while True:
                 data = conn.recv(1024)
                 if not data:
@@ -44,4 +44,4 @@ def sub_server(indirizzo, backlog=1): # blacklog quante richieste può accettare
     conn.close() 
 
 if __name__ == "__main__":
-    sub_server(("192.168.1.91",8888)) #  "" = prende l'IP della macchina su cui sta girando però la porta deve essere specificata  
+    sub_server(("192.168.43.249",8888)) #  "" = prende l'IP della macchina su cui sta girando però la porta deve essere specificata  

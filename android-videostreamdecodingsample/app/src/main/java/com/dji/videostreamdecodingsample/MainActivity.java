@@ -60,7 +60,6 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
     private VideoFeeder.VideoFeed standardVideoFeeder;
 
 
-
     protected VideoFeeder.VideoDataListener mReceivedVideoDataListener = null;
     private TextView titleTv;
     public Handler mainHandler = new Handler(Looper.getMainLooper()) {
