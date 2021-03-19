@@ -526,7 +526,7 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
             yuvFrame[length + 2 * i] = u[i];
             yuvFrame[length + 2 * i + 1] = v[i];
         }
-        screenShot2(yuvFrame,Environment.getExternalStorageDirectory() + "/DJI_ScreenShot", width, height);
+        screenShot(yuvFrame,Environment.getExternalStorageDirectory() + "/DJI_ScreenShot", width, height);
     }
 
     private void newSaveYuvDataToJPEG420P(byte[] yuvFrame, int width, int height) {
