@@ -17,7 +17,7 @@ def sub_server(indirizzo, backlog=1): # blacklog quante richieste può accettare
     count = 0
     #path = os.path.dirname(os.path.abspath(__file__)) + '\imagesReceived'
     #print(path)
-    path = 'D:\GroupProject\AndroidStudioProjects\GP-main\imagesReceived\image.jpg'
+    path = 'D:\GroupProject\AndroidStudioProjects\videodrone2\imagesReceived\image.jpg'
     while True:
         conn, indirizzo_client = s.accept() # accetto la richiesta di un client, 
                                             # funzione che ritorna la connessione (il socket del client) e l'inidrizzo del client 
@@ -44,4 +44,4 @@ def sub_server(indirizzo, backlog=1): # blacklog quante richieste può accettare
     conn.close() 
 
 if __name__ == "__main__":
-    sub_server(("192.168.43.249",8888)) #  "" = prende l'IP della macchina su cui sta girando però la porta deve essere specificata  
+    sub_server(("192.168.42.215",8888))
