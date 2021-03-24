@@ -427,7 +427,7 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
     public void onYuvDataReceived(MediaFormat format, final ByteBuffer yuvFrame, int dataSize, final int width, final int height) {
         //In this demo, we test the YUV data by saving it into JPG files.
         //DJILog.d(TAG, "onYuvDataReceived " + dataSize);
-        if (count++ % 30 == 0 && yuvFrame != null) {
+        if (count++ % 10 == 0 && yuvFrame != null) {
             final byte[] bytes = new byte[dataSize];
             yuvFrame.get(bytes);
             //DJILog.d(TAG, "onYuvDataReceived2 " + dataSize);
@@ -564,7 +564,7 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
 
             Rect rect = new Rect(0, 0, width, height);
 
-            yuvImage.compressToJpeg(rect, 20, byteArrayOutputStream);
+            yuvImage.compressToJpeg(rect, 15, byteArrayOutputStream);
             byte[] bmp = byteArrayOutputStream.toByteArray();
 
             SocketClient socketClient = new SocketClient();
@@ -585,44 +585,6 @@ public class MainActivity extends Activity implements DJICodecManager.YuvDataCal
             }
         });
     }
-    private void screenShot2(byte[] buf, String shotDir, int width, int height) {
-        File dir = new File(shotDir);
-        if (!dir.exists() || !dir.isDirectory()) {
-            dir.mkdirs();
-        }
-        YuvImage yuvImage = new YuvImage(buf,
-                ImageFormat.NV21,
-                width,
-                height,
-                null);
-        OutputStream outputFile;
-        final String path = dir + "/ScreenShot_" + System.currentTimeMillis() + ".jpg";
-        try {
-            outputFile = new FileOutputStream(new File(path));
-        } catch (FileNotFoundException e) {
-            Log.e(TAG, "test screenShot: new bitmap output file error: " + e);
-            return;
-        }
-        if (outputFile != null) {
-            yuvImage.compressToJpeg(new Rect(0,
-                    0,
-                    width,
-                    height), 100, outputFile);
-        }
-        try {
-            outputFile.close();
-        } catch (IOException e) {
-            Log.e(TAG, "test screenShot: compress yuv image error: " + e);
-            e.printStackTrace();
-        }
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                displayPath(path);
-            }
-        });
-    }
-
 
     public void onClick(View v) {
 
